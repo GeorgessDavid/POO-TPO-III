@@ -19,6 +19,14 @@ public class TarjetaController {
         return INSTANCE;
     }
 
+    public void agregarConsumo(String cardNumber, String month, String year, double expense, String businessName){
+        Card tarjeta = buscarTarjeta(cardNumber);
+        if(tarjeta == null) return;
+
+        Expense consumo = new Expense(tarjeta,expense,month,year,businessName);
+        tarjeta.setConsumo(consumo);
+    }
+
     public Card buscarTarjeta(String numeroTarjeta){
 
         for(int i = 0; i < tarjetas.size();i++){

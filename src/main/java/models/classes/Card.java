@@ -60,4 +60,8 @@ public abstract class Card{
     public List<Expense> getConsumos() {
         return consumos;
     }
+
+    public void setConsumo(Expense consumo) {
+        consumos.add(consumo);
+    }
 }
