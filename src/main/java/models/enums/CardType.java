@@ -1,4 +1,4 @@
-package models.enums.CardType;
+package models.enums;
 
 public enum CardType {
     CREDIT, DEBIT

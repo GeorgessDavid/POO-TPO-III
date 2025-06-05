@@ -1,0 +1,40 @@
+package models.classes;
+import models.enums.CardType;
+import models.classes.Expense;
+import java.util.List;
+
+
+public abstract class Card{
+    String name;
+    String lastname;
+    String cardNumber;
+    String cvc;
+    String expiryDate;
+    CardType type;
+
+    public Card(String name, String lastname, String cardNumber, String cvc, String expiryDate) {
+        this.name = name;
+        this.lastname = lastname;
+        this.cardNumber = cardNumber;
+        this.cvc = cvc;
+        this.expiryDate = expiryDate;
+        this.type = type;
+    }
+
+    protected abstract double calcularConsumo(List<Expense> consumoTotal);
+
+    protected double sumarConsumos(List<Expense> consumos){
+        if(consumos.isEmpty()) return 0.00;
+
+        if(!consumos.isEmpty()){
+            double consumoTotal= 0.00;
+            for(int i = 0; i > consumos.size(); i++){
+                double consumo = consumos.get(i).getExpense();
+                consumoTotal += consumo;
+            }
+            return consumoTotal;
+        }
+
+        return 0.00;
+    }
+}
