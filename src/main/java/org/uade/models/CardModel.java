@@ -22,6 +22,7 @@ public abstract class CardModel {
     }
 
     protected abstract double calcularConsumo(List<ExpenseModel> consumoTotal);
+    public abstract double calcularConsumoRealMes(List<ExpenseModel> consumos, String year, String month);
 
     protected double sumarConsumos(List<ExpenseModel> consumos){
         if(consumos.isEmpty()) return 0.00;

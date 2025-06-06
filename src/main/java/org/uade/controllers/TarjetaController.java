@@ -3,12 +3,12 @@ package org.uade.controllers;
 import org.uade.dtos.CardDTO;
 import org.uade.dtos.CreditCardDTO;
 import org.uade.dtos.DebitCardDTO;
+import org.uade.exceptions.CardAlreadyRegisteredException;
 import org.uade.exceptions.CardNotFoundException;
 import org.uade.models.CardModel;
 import org.uade.models.CreditCardModel;
 import org.uade.models.DebitCardModel;
 import org.uade.models.ExpenseModel;
-import org.uade.exceptions.CardNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +26,14 @@ public class TarjetaController {
         if (INSTANCE == null) INSTANCE = new TarjetaController();
 
         return INSTANCE;
+    }
+
+    public double calcularConsumoRealMes(String numeroTarjeta, String month, String year){
+        CardModel card = buscarTarjeta(numeroTarjeta);
+
+        if(card == null) throw new CardNotFoundException("La tarjeta no existe en el sistema");
+
+        return card.calcularConsumoRealMes(card.getConsumos(),month, year);
     }
 
     public void agregarConsumo(String cardNumber, String month, String year, double expense, String businessName) {

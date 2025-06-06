@@ -10,10 +10,25 @@ public class CreditCardModel extends CardModel {
     }
 
     @Override
-    protected double calcularConsumo(List<ExpenseModel> consumos) {
+    public double calcularConsumo(List<ExpenseModel> consumos) {
         double consumo = this.sumarConsumos(consumos);
         double impuestos = this.tax + 1.00;
 
         return consumo * impuestos;
+    }
+
+    @Override
+    public double calcularConsumoRealMes(List<ExpenseModel> consumos, String year, String month) {
+        double impuestos = this.tax + 1.00;
+        double consumoTotal = 0.00;
+
+        for(int i = 0; i < consumos.size();i++){
+            ExpenseModel consumo = consumos.get(i);
+            if(consumo.getYear().equals(year) && consumo.getMonth().equals(month)){
+                consumoTotal += consumo.getExpense();
+            }
+        }
+
+        return consumoTotal * impuestos;
     }
 }
