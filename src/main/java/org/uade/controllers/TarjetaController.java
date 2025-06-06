@@ -61,15 +61,14 @@ public class TarjetaController {
         }
 
         if (card instanceof CreditCardDTO) {
-            CreditCardModel creditCard = new CreditCardModel(card.getName(), card.getLastname(), card.getCardNumber(), card.getCvc(), card.getExpiryDate(), ((CreditCardDTO) card).getTax());
+            CreditCardModel creditCard = new CreditCardModel(card.getName(), card.getLastname(), card.getCardNumber(), card.getCvc(), card.getExpiryDate(), ((CreditCardDTO) card).getTax(),card.getClient());
             this.tarjetas.add(creditCard);
             return;
         }
 
         if (card instanceof DebitCardDTO) {
-            DebitCardModel debitCard = new DebitCardModel(card.getName(), card.getLastname(), card.getCardNumber(), card.getCvc(), card.getCvc(), ((DebitCardDTO) card).getIva());
+            DebitCardModel debitCard = new DebitCardModel(card.getName(), card.getLastname(), card.getCardNumber(), card.getCvc(), card.getCvc(), ((DebitCardDTO) card).getIva(), card.getClient());
             this.tarjetas.add(debitCard);
-            return;
         }
 
     }

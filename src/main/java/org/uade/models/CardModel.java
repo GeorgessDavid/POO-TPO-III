@@ -62,6 +62,8 @@ public abstract class CardModel {
         return consumos;
     }
 
+    public ClientModel getClient(){ return client; }
+
     public void setConsumo(ExpenseModel consumo) {
         consumos.add(consumo);
     }

@@ -47,4 +47,6 @@ public class CardDTO {
     public List<ExpenseModel> getConsumos() {
         return consumos;
     }
+
+    public ClientModel getClient(){ return client; }
 }
