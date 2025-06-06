@@ -9,13 +9,11 @@ public class CreditCardModel extends CardModel {
         this.tax = tax;
     }
 
-
-
     @Override
     protected double calcularConsumo(List<ExpenseModel> consumos) {
         double consumo = this.sumarConsumos(consumos);
-        double total = consumo * (this.tax + 1.00);
+        double impuestos = this.tax + 1.00;
 
-        return total;
+        return consumo * impuestos;
     }
 }

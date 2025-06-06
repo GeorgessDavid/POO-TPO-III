@@ -13,9 +13,9 @@ public class DebitCardModel extends CardModel {
 
     @Override
     protected double calcularConsumo(List<ExpenseModel> consumoTotal) {
-        double consumo = this.sumarConsumos(consumoTotal);
-        double total = (1.00 - iva) * consumo;
-//        1.00 - iva sería 1.00 - 0.21, lo que quedaría 0.79 que, al multiplicarlo por el consumo total se descuenta como tal.
-        return total;
+        double consumos = this.sumarConsumos(consumoTotal);
+        double descuentoIva = 1.00 - iva; // 1.00 - 0.21 -> 0.79.
+
+        return consumos * descuentoIva;
     }
 }
