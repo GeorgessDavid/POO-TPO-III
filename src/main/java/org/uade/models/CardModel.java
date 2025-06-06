@@ -5,6 +5,8 @@ import java.util.List;
 
 
 public abstract class CardModel {
+
+    private ClientModel client;
     private String name;
     private String lastname;
     private String cardNumber;
@@ -12,12 +14,13 @@ public abstract class CardModel {
     private String expiryDate;
     private List<ExpenseModel> consumos;
 
-    public CardModel(String name, String lastname, String cardNumber, String cvc, String expiryDate) {
+    public CardModel(String name, String lastname, String cardNumber, String cvc, String expiryDate, ClientModel client) {
         this.name = name;
         this.lastname = lastname;
         this.cardNumber = cardNumber;
         this.cvc = cvc;
         this.expiryDate = expiryDate;
+        this.client = client;
         consumos = new ArrayList<>();
     }
 
