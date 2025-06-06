@@ -7,7 +7,7 @@ import org.uade.models.ExpenseModel;
 
 public class ConsumoController {
 
-    private static ConsumoController INSTANCE;
+    private static ConsumoController instance;
     private final TarjetaController tarjetaController;
 
     private ConsumoController() {
@@ -15,9 +15,9 @@ public class ConsumoController {
     }
 
     public static ConsumoController getInstance() {
-        if (INSTANCE == null) INSTANCE = new ConsumoController();
+        if (instance == null) instance = new ConsumoController();
 
-        return INSTANCE;
+        return instance;
     }
 
     public double calcularConsumoRealMes(String numeroTarjeta, String month, String year){
