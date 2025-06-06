@@ -49,7 +49,7 @@ public class TarjetaController {
 
     public void crearTarjeta(CardDTO card) {
         if (this.verifyByCardNumber(card.getCardNumber())) {
-            throw new IllegalArgumentException("La tarjeta ya existe en el sistema.");
+            throw new CardAlreadyRegisteredException("La tarjeta ya existe en el sistema.");
         }
 
         if (card instanceof CreditCardDTO) {
