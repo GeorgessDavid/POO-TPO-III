@@ -50,7 +50,7 @@ Desarrolla el sistema asegurándote de que sea capaz de gestionar y calcular cor
 
 - Refactorizar el diagrama de clases basado en lo visto en clase del diseño del patrón **MVC** y **Singleton**.
 - Realizar el **diagrama de secuencia** de acuerdo al diagrama especificado.
-- **Calcular consumo real**.
+  - **Calcular consumo real**.
 - Implementar en código el diagrama de clase refactorizado y secuencia diseñado.
 
 ---
