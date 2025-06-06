@@ -1,13 +1,13 @@
-package models.classes;
+package org.example.models;
 
-public class Expense {
-    Card card;
+public class ExpenseModel {
+    CardModel card;
     double expense;
     String month;
     String year;
     String place;
 
-    public Expense(Card card, double expense, String month, String year, String place) {
+    public ExpenseModel(CardModel card, double expense, String month, String year, String place) {
         this.card = card;
         this.expense = expense;
         this.month = month;
@@ -15,7 +15,7 @@ public class Expense {
         this.place = place;
     }
 
-    public Card getCard() {
+    public CardModel getCard() {
         return card;
     }
 

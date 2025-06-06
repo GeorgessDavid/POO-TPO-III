@@ -1,13 +1,15 @@
-package controllers;
+package org.example.controllers;
 
-import models.classes.*;
+import org.example.models.CardModel;
+import org.example.models.ExpenseModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TarjetaController {
 
     private static TarjetaController INSTANCE;
-    private List<Card> tarjetas;
+    private List<CardModel> tarjetas;
 
     private TarjetaController(){
         this.tarjetas = new ArrayList<>();
@@ -20,14 +22,14 @@ public class TarjetaController {
     }
 
     public void agregarConsumo(String cardNumber, String month, String year, double expense, String businessName){
-        Card tarjeta = buscarTarjeta(cardNumber);
+        CardModel tarjeta = buscarTarjeta(cardNumber);
         if(tarjeta == null) return;
 
-        Expense consumo = new Expense(tarjeta,expense,month,year,businessName);
+        ExpenseModel consumo = new ExpenseModel(tarjeta,expense,month,year,businessName);
         tarjeta.setConsumo(consumo);
     }
 
-    public Card buscarTarjeta(String numeroTarjeta){
+    public CardModel buscarTarjeta(String numeroTarjeta){
 
         for(int i = 0; i < tarjetas.size();i++){
             if(tarjetas.get(i).getCardNumber().equals(numeroTarjeta)) return tarjetas.get(i);

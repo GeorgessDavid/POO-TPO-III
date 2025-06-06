@@ -1,12 +1,12 @@
-package models.classes;
+package org.example.models;
 
-public class Client {
+public class ClientModel {
 
     private String name;
     private String lastName;
     private int dni;
 
-    public Client(String name, String lastName, int dni) {
+    public ClientModel(String name, String lastName, int dni) {
         this.name = name;
         this.lastName = lastName;
         this.dni = dni;

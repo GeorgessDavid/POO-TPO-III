@@ -1,21 +1,18 @@
-package models.classes;
-
-import models.enums.CardType;
-import models.classes.Expense;
+package org.example.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class Card{
+public abstract class CardModel {
     String name;
     String lastname;
     String cardNumber;
     String cvc;
     String expiryDate;
-    List<Expense> consumos;
+    List<ExpenseModel> consumos;
 
-    public Card(String name, String lastname, String cardNumber, String cvc, String expiryDate) {
+    public CardModel(String name, String lastname, String cardNumber, String cvc, String expiryDate) {
         this.name = name;
         this.lastname = lastname;
         this.cardNumber = cardNumber;
@@ -24,9 +21,9 @@ public abstract class Card{
         consumos = new ArrayList<>();
     }
 
-    protected abstract double calcularConsumo(List<Expense> consumoTotal);
+    protected abstract double calcularConsumo(List<ExpenseModel> consumoTotal);
 
-    protected double sumarConsumos(List<Expense> consumos){
+    protected double sumarConsumos(List<ExpenseModel> consumos){
         if(consumos.isEmpty()) return 0.00;
 
         double consumoTotal= 0.00;
@@ -57,11 +54,11 @@ public abstract class Card{
         return expiryDate;
     }
 
-    public List<Expense> getConsumos() {
+    public List<ExpenseModel> getConsumos() {
         return consumos;
     }
 
-    public void setConsumo(Expense consumo) {
+    public void setConsumo(ExpenseModel consumo) {
         consumos.add(consumo);
     }
 }
