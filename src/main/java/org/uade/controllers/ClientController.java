@@ -5,13 +5,16 @@ import org.uade.models.ClientModel;
 import org.uade.dtos.ClientDTO;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ClientController {
 
     private static ClientController instance;
-    private ArrayList<ClientModel> clientes;
+    private List<ClientModel> clientes;
 
-    private ClientController() {}
+    private ClientController() {
+        clientes = new ArrayList<>();
+    }
 
     public static ClientController getInstance() {
         if(instance == null) instance = new ClientController();
@@ -31,7 +34,7 @@ public class ClientController {
         for(ClientModel cliente : clientes){
             if(cliente.getDni() == dni) return true;
         }
-        
+
         return false;
     }
 }
