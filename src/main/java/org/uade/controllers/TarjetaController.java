@@ -1,7 +1,12 @@
 package org.uade.controllers;
 
+import org.uade.dtos.CardDTO;
+import org.uade.dtos.CreditCardDTO;
+import org.uade.dtos.DebitCardDTO;
+import org.uade.exceptions.CardNotFoundException;
 import org.uade.models.CardModel;
 import org.uade.models.CreditCardModel;
+import org.uade.models.DebitCardModel;
 import org.uade.models.ExpenseModel;
 import org.uade.exceptions.CardNotFoundException;
 
@@ -42,18 +47,29 @@ public class TarjetaController {
         return null;
     }
 
-    public void crearTarjetaCredito(String name, String lastname, String cardNumber, String cvc, String expiryDate, double tax) {
-        if (this.verifyByCardNumber(cardNumber)) {
+    public void crearTarjeta(CardDTO card) {
+        if (this.verifyByCardNumber(card.getCardNumber())) {
             throw new IllegalArgumentException("La tarjeta ya existe en el sistema.");
         }
-        CreditCardModel creditCard = new CreditCardModel(name, lastname, cardNumber, cvc, expiryDate, tax);
-        this.tarjetas.add(creditCard);
+
+        if (card instanceof CreditCardDTO) {
+            CreditCardModel creditCard = new CreditCardModel(card.getName(), card.getLastname(), card.getCardNumber(), card.getCvc(), card.getExpiryDate(), ((CreditCardDTO) card).getTax());
+            this.tarjetas.add(creditCard);
+            return;
+        }
+
+        if (card instanceof DebitCardDTO) {
+            DebitCardModel debitCard = new DebitCardModel(card.getName(), card.getLastname(), card.getCardNumber(), card.getCvc(), card.getCvc(), ((DebitCardDTO) card).getIva());
+            this.tarjetas.add(debitCard);
+            return;
+        }
 
     }
 
-    private boolean verifyByCardNumber(String cardNumber) {
-        for (int i = 0; i < tarjetas.size(); i++) {
-            if (tarjetas.get(i).getCardNumber().equals(cardNumber)) return true;
+
+    private boolean verifyByCardNumber(String cardNumber){
+        for(int i = 0; i < tarjetas.size();i++){
+            if(tarjetas.get(i).getCardNumber().equals(cardNumber)) return true;
         }
         return false;
     }
