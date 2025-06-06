@@ -15,7 +15,7 @@ import java.util.List;
 
 public class TarjetaController {
 
-    private static TarjetaController INSTANCE;
+    private static TarjetaController instance;
     private final List<CardModel> tarjetas;
 
     private TarjetaController() {
@@ -23,9 +23,9 @@ public class TarjetaController {
     }
 
     public static TarjetaController getInstance() {
-        if (INSTANCE == null) INSTANCE = new TarjetaController();
+        if (instance == null) instance = new TarjetaController();
 
-        return INSTANCE;
+        return instance;
     }
 
     public double calcularConsumoRealMes(String numeroTarjeta, String month, String year){
