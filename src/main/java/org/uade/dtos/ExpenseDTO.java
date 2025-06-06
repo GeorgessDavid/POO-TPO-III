@@ -4,10 +4,10 @@ import org.uade.models.CardModel;
 
 public class ExpenseDTO {
     private CardModel card;
-    double expense;
-    String month;
-    String year;
-    String place;
+    private double expense;
+    private String month;
+    private String year;
+    private String place;
 
     public ExpenseDTO(CardModel card, double expense, String month, String year, String place) {
         this.card = card;

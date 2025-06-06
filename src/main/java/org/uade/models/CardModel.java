@@ -5,12 +5,12 @@ import java.util.List;
 
 
 public abstract class CardModel {
-    String name;
-    String lastname;
-    String cardNumber;
-    String cvc;
-    String expiryDate;
-    List<ExpenseModel> consumos;
+    private String name;
+    private String lastname;
+    private String cardNumber;
+    private String cvc;
+    private String expiryDate;
+    private List<ExpenseModel> consumos;
 
     public CardModel(String name, String lastname, String cardNumber, String cvc, String expiryDate) {
         this.name = name;
