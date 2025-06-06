@@ -63,7 +63,7 @@ El enunciado y diagrama de clases adjunto detalla a modo general los requerimien
 
 ---
 
-# Integrantes
+## Integrantes
 - Diaz, Iván Alejandro.
 - Galarza Cavedo, Santino.
 - Maceira, Santiago.
