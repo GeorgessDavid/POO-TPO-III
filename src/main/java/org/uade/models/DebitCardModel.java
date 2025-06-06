@@ -1,4 +1,4 @@
-package org.example.models;
+package org.uade.models;
 
 import java.util.List;
 

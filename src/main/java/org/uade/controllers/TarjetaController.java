@@ -1,7 +1,7 @@
-package org.example.controllers;
+package org.uade.controllers;
 
-import org.example.models.CardModel;
-import org.example.models.ExpenseModel;
+import org.uade.models.CardModel;
+import org.uade.models.ExpenseModel;
 
 import java.util.ArrayList;
 import java.util.List;
