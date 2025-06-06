@@ -1,6 +1,7 @@
 package org.uade.controllers;
 
 import org.uade.models.CardModel;
+import org.uade.models.CreditCardModel;
 import org.uade.models.ExpenseModel;
 
 import java.util.ArrayList;
@@ -36,5 +37,21 @@ public class TarjetaController {
         }
 
         return null;
+    }
+
+    public void crearTarjetaCredito(String name, String lastname, String cardNumber, String cvc, String expiryDate, double tax){
+        if(!this.verifyByCardNumber(cardNumber)){
+            CreditCardModel creditCard = new CreditCardModel(name, lastname, cardNumber, cvc, expiryDate, tax);
+            this.tarjetas.add(creditCard);
+        }else{
+            throw new IllegalArgumentException("La tarjeta ya existe en el sistema.");
+        }
+    }
+
+    private boolean verifyByCardNumber(String cardNumber){
+        for(int i = 0; i < tarjetas.size();i++){
+            if(tarjetas.get(i).getCardNumber().equals(cardNumber)) return true;
+        }
+        return false;
     }
 }
