@@ -2,10 +2,11 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Looo_UADE.svg/900px-Looo_UADE.svg.png" alt="Universidad Argentina De la Empresa" width="500"/>
 </p>
 
+
 <p align="center">
-    <h1> Trabajo Práctico III </h1>
-    Repositorio para el trabajo práctico III de la materia Paradigma Orientado a Objetos.
+  Repositorio para el trabajo práctico III de la materia Paradigma Orientado a Objetos.
 </p>
+
 
 ---
 
