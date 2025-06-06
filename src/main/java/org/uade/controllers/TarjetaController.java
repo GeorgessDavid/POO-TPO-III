@@ -23,9 +23,11 @@ public class TarjetaController {
 
     public void agregarConsumo(String cardNumber, String month, String year, double expense, String businessName){
         CardModel tarjeta = buscarTarjeta(cardNumber);
-        if(tarjeta == null) return;
 
         ExpenseModel consumo = new ExpenseModel(tarjeta,expense,month,year,businessName);
+        if (tarjeta == null) {
+            throw new CardNotFoundException(cardNumber);
+        }
         tarjeta.setConsumo(consumo);
     }
 
