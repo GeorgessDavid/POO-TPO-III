@@ -5,8 +5,8 @@ import java.util.List;
 public class DebitCardModel extends CardModel {
     private double iva = 0.21;
 
-    public DebitCardModel(String name, String lastname, String cardNumber, String cvc, String expiryDate, double iva) {
-        super(name, lastname, cardNumber, cvc, expiryDate);
+    public DebitCardModel(String name, String lastname, String cardNumber, String cvc, String expiryDate, double iva, ClientModel client) {
+        super(name, lastname, cardNumber, cvc, expiryDate,client);
         this.iva = iva;
     }
 
