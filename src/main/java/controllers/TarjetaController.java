@@ -1,4 +1,4 @@
-package models.controller;
+package controllers;
 
 import models.classes.*;
 import java.util.ArrayList;
