@@ -6,13 +6,13 @@ import java.util.List;
 
 public abstract class CardModel {
 
-    private ClientModel client;
-    private String name;
-    private String lastname;
-    private String cardNumber;
-    private String cvc;
+    private final ClientModel client;
+    private final String name;
+    private final String lastname;
+    private final String cardNumber;
+    private final String cvc;
     private String expiryDate;
-    private List<ExpenseModel> consumos;
+    private final List<ExpenseModel> consumos;
 
     public CardModel(String name, String lastname, String cardNumber, String cvc, String expiryDate, ClientModel client) {
         this.name = name;
@@ -28,13 +28,14 @@ public abstract class CardModel {
     public abstract double calcularConsumoRealMes(List<ExpenseModel> consumos, String year, String month);
 
     protected double sumarConsumos(List<ExpenseModel> consumos){
-        if(consumos.isEmpty()) return 0.00;
-
+        if (consumos.isEmpty()) return 0.00;
         double consumoTotal= 0.00;
-        for(int i = 0; i < consumos.size(); i++){
-            double consumo = consumos.get(i).getExpense();
+
+        for (ExpenseModel expenseModel : consumos) {
+            double consumo = expenseModel.getExpense();
             consumoTotal += consumo;
         }
+
         return consumoTotal;
     }
 

@@ -1,10 +1,9 @@
 package org.uade.models;
 
 public class ClientModel {
-
-    private String name;
-    private String lastName;
-    private int dni;
+    private final String name;
+    private final String lastName;
+    private final int dni;
 
     public ClientModel(String name, String lastName, int dni) {
         this.name = name;

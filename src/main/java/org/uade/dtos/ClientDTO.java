@@ -1,9 +1,9 @@
 package org.uade.dtos;
 
 public class ClientDTO {
-    private String name;
-    private String lastName;
-    private int dni;
+    private final String name;
+    private final String lastName;
+    private final int dni;
 
     public ClientDTO(String name, String lastName, int dni) {
         this.name = name;

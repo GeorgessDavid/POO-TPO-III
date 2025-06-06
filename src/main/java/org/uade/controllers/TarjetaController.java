@@ -16,7 +16,7 @@ import java.util.List;
 public class TarjetaController {
 
     private static TarjetaController INSTANCE;
-    private List<CardModel> tarjetas;
+    private final List<CardModel> tarjetas;
 
     private TarjetaController() {
         this.tarjetas = new ArrayList<>();
@@ -47,9 +47,8 @@ public class TarjetaController {
     }
 
     public CardModel buscarTarjeta(String numeroTarjeta) {
-
-        for (int i = 0; i < tarjetas.size(); i++) {
-            if (tarjetas.get(i).getCardNumber().equals(numeroTarjeta)) return tarjetas.get(i);
+        for (CardModel tarjeta : tarjetas) {
+            if (tarjeta.getCardNumber().equals(numeroTarjeta)) return tarjeta;
         }
 
         return null;
@@ -75,9 +74,10 @@ public class TarjetaController {
 
 
     private boolean verifyByCardNumber(String cardNumber){
-        for(int i = 0; i < tarjetas.size();i++){
-            if(tarjetas.get(i).getCardNumber().equals(cardNumber)) return true;
+        for (CardModel tarjeta : tarjetas) {
+            if (tarjeta.getCardNumber().equals(cardNumber)) return true;
         }
+
         return false;
     }
 }

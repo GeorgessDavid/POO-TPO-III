@@ -2,7 +2,7 @@ package org.uade.models;
 import java.util.List;
 
 public class CreditCardModel extends CardModel {
-    private double tax;
+    private final double tax;
 
     public CreditCardModel(String name, String lastname, String cardNumber, String cvc, String expiryDate, double tax, ClientModel client) {
         super(name, lastname, cardNumber, cvc, expiryDate, client);
@@ -22,9 +22,8 @@ public class CreditCardModel extends CardModel {
         double impuestos = this.tax + 1.00;
         double consumoTotal = 0.00;
 
-        for(int i = 0; i < consumos.size();i++){
-            ExpenseModel consumo = consumos.get(i);
-            if(consumo.getYear().equals(year) && consumo.getMonth().equals(month)){
+        for (ExpenseModel consumo : consumos) {
+            if (consumo.getYear().equals(year) && consumo.getMonth().equals(month)) {
                 consumoTotal += consumo.getExpense();
             }
         }

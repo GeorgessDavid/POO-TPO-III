@@ -6,13 +6,13 @@ import java.util.List;
 
 public class CardDTO {
 
-    private ClientModel client;
-    private String name;
-    private String lastname;
-    private String cardNumber;
-    private String cvc;
+    private final ClientModel client;
+    private final String name;
+    private final String lastname;
+    private final String cardNumber;
+    private final String cvc;
     private String expiryDate;
-    private List<ExpenseModel> consumos;
+    private final List<ExpenseModel> consumos;
 
     public CardDTO(String name, String lastname, String cardNumber, String cvc, String expiryDate, List<ExpenseModel> consumos, ClientModel client) {
         this.name = name;

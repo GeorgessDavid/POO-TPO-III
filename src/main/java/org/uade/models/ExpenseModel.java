@@ -1,11 +1,11 @@
 package org.uade.models;
 
 public class ExpenseModel {
-    private CardModel card;
-    private double expense;
-    private String month;
-    private String year;
-    private String place;
+    private final CardModel card;
+    private final double expense;
+    private final String month;
+    private final String year;
+    private final String place;
 
     public ExpenseModel(CardModel card, double expense, String month, String year, String place) {
         this.card = card;
